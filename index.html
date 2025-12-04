@@ -57,6 +57,42 @@
             color: #000;
         }
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .download-cv-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: #619591;
+            color: white;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: all 0.3s;
+            border: 2px solid #619591;
+        }
+
+        .download-cv-btn:hover {
+            background: #4a7470;
+            border-color: #4a7470;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(97, 149, 145, 0.3);
+        }
+
+        .download-cv-btn svg {
+            transition: transform 0.3s;
+        }
+
+        .download-cv-btn:hover svg {
+            transform: translateY(2px);
+        }
+
         .contact-info {
             display: flex;
             align-items: center;
@@ -1180,6 +1216,13 @@
                 left: auto;
                 right: 40px;
             }
+            .nav-right {
+                gap: 30px;
+            }
+            .download-cv-btn {
+                padding: 10px 20px;
+                font-size: 15px;
+            }
             .tech-content {
                 flex: 0 0 55%;
             }
@@ -1215,6 +1258,14 @@
             }
             .hero-roles {
                 left: 60px;
+            }
+            .nav-right {
+                gap: 24px;
+            }
+            .download-cv-btn {
+                padding: 10px 18px;
+                font-size: 14px;
+                gap: 6px;
             }
             .tech-section {
                 flex-direction: column;
@@ -1303,6 +1354,24 @@
             }
             .contact-email {
                 display: none;
+            }
+            .nav-right {
+                gap: 16px;
+            }
+            .download-cv-btn {
+                padding: 10px;
+                gap: 0;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                justify-content: center;
+            }
+            .download-cv-btn .cv-text {
+                display: none;
+            }
+            .download-cv-btn svg {
+                width: 20px;
+                height: 20px;
             }
             .contact-icon::before {
                 display: none;
@@ -1493,6 +1562,18 @@
             .testimonial-card {
                 flex: 0 0 100%;
             }
+            .nav-right {
+                gap: 12px;
+            }
+            .download-cv-btn {
+                padding: 8px;
+                width: 36px;
+                height: 36px;
+            }
+            .download-cv-btn svg {
+                width: 18px;
+                height: 18px;
+            }
         }
     </style>
 </head>
@@ -1515,13 +1596,23 @@
     <!-- Navigation -->
     <nav id="main-nav">
         <div class="logo black-ops">MS-CODE.DEV</div>
-        <div class="contact-info">
-            <a href="mailto:info@ms-code.dev" class="contact-email helvetica-rounded">info@ms-code.dev</a>
-            <a href="mailto:info@ms-code.dev" class="contact-icon">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-                    <path d="M33.3333 13.3333L20 23.3333L6.66667 13.3333V10L20 20L33.3333 10V13.3333ZM33.3333 6.66667H6.66667C4.83333 6.66667 3.35 8.16667 3.35 10L3.33333 30C3.33333 30.8841 3.68452 31.7319 4.30964 32.357C4.93477 32.9821 5.78261 33.3333 6.66667 33.3333H33.3333C34.2174 33.3333 35.0652 32.9821 35.6904 32.357C36.3155 31.7319 36.6667 30.8841 36.6667 30V10C36.6667 9.11594 36.3155 8.2681 35.6904 7.64298C35.0652 7.01786 34.2174 6.66667 33.3333 6.66667Z" fill="#96999E"/>
+        <div class="nav-right">
+            <a href="assets/Mostafa-Abdelrazek-Resume.pdf" target="_blank" download="Mostafa_Yasser_Mostafa-Abdelrazek-Resume.pdf" class="download-cv-btn helvetica-rounded" title="Download My CV">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
                 </svg>
+                <span class="cv-text">Download CV</span>
             </a>
+            <div class="contact-info">
+                <a href="mailto:info@ms-code.dev" class="contact-email helvetica-rounded">info@ms-code.dev</a>
+                <a href="mailto:info@ms-code.dev" class="contact-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                        <path d="M33.3333 13.3333L20 23.3333L6.66667 13.3333V10L20 20L33.3333 10V13.3333ZM33.3333 6.66667H6.66667C4.83333 6.66667 3.35 8.16667 3.35 10L3.33333 30C3.33333 30.8841 3.68452 31.7319 4.30964 32.357C4.93477 32.9821 5.78261 33.3333 6.66667 33.3333H33.3333C34.2174 33.3333 35.0652 32.9821 35.6904 32.357C36.3155 31.7319 36.6667 30.8841 36.6667 30V10C36.6667 9.11594 36.3155 8.2681 35.6904 7.64298C35.0652 7.01786 34.2174 6.66667 33.3333 6.66667Z" fill="#96999E"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -1536,7 +1627,7 @@
         <div class="hero-text-large hero-text-mostafa black-ops" id="text-mostafa">MOSTAFA</div>
         
         <div class="hero-image" id="hero-image">
-            <img src="assets/hero-image.jpg" alt="Mostafa Yasser">
+            <img src="assets/hero-image.png" alt="Mostafa Yasser">
         </div>
         <div class="hero-blob" style="left: 1130px; top: 526px; width: 831px; height: 831px;">
             <div style="position: absolute; inset: -30.08%;">
