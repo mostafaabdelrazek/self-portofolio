@@ -102,10 +102,12 @@ Add tracking code before `</head>`:
 ## 📊 SEO Keywords Targeted
 
 ### Primary Keywords:
-- Mostafa Yasser
+- Mostafa Abdelrazek
 - Full Stack Developer
 - PHP Developer
 - Laravel Expert
+- Software Engineer
+- Software Expert
 
 ### Secondary Keywords:
 - Flutter Developer
