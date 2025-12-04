@@ -646,6 +646,7 @@
 
         .projects-grid {
             display: flex;
+            justify-content: center;
             gap: 40px;
             flex-wrap: wrap;
         }
@@ -668,6 +669,7 @@
         .project-card:nth-child(2) { transition-delay: 0.4s; }
         .project-card:nth-child(3) { transition-delay: 0.5s; }
         .project-card:nth-child(4) { transition-delay: 0.6s; }
+        .project-card:nth-child(5) { transition-delay: 0.7s; }
 
         .project-card:hover {
             transform: translateY(-10px);
@@ -688,6 +690,16 @@
             font-size: 16px;
             color: #96999e;
             line-height: 1.5;
+        }
+
+        .project-info .inner-link {
+            color: #619591;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .project-info .inner-link:hover {
+            color: #4a7470;
         }
 
         .project-image {
@@ -1517,31 +1529,31 @@
     <section class="hero" id="hero-section">
         <div class="hero-blob" style="left: -80px; top: 493px; width: 780px; height: 780px;">
             <div style="position: absolute; inset: -32.05%;">
-                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="https://www.figma.com/api/mcp/asset/0d654bc6-599f-4bbe-9f4a-f04416cb2c3d">
+                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="assets/nav-icon-1.png">
             </div>
         </div>
 
         <div class="hero-text-large hero-text-mostafa black-ops" id="text-mostafa">MOSTAFA</div>
         
         <div class="hero-image" id="hero-image">
-            <img src="https://www.figma.com/api/mcp/asset/c3e55786-f231-4f1d-bc42-1d275828a555" alt="Mostafa Yasser">
+            <img src="assets/hero-image.jpg" alt="Mostafa Yasser">
         </div>
         <div class="hero-blob" style="left: 1130px; top: 526px; width: 831px; height: 831px;">
             <div style="position: absolute; inset: -30.08%;">
-                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="https://www.figma.com/api/mcp/asset/299e1ad6-1e88-416c-9b4f-d5f96f6d7ce5">
+                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="assets/nav-icon-2.png">
             </div>
         </div>
         <div class="hero-text-large hero-text-yasser black-ops" id="text-yasser">YASSER</div>
 
         <div class="hero-blob" style="left: 900px; top: 526px; width: 831px; height: 831px;">
             <div style="position: absolute; inset: -30.08%;">
-                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="https://www.figma.com/api/mcp/asset/796c3129-b84d-45fe-9762-9168b7c93f5e">
+                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="assets/nav-icon-3.png">
             </div>
         </div>
 
         <div class="hero-blob" style="left: 200px; top: 626px; width: 831px; height: 831px;">
             <div style="position: absolute; inset: -30.08%;">
-                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="https://www.figma.com/api/mcp/asset/c9fd49e1-1a17-42e6-a978-7f984b6b6d89">
+                <img style="display: block; max-width: none; width: 100%; height: 100%;" alt="" src="assets/nav-icon-4.png">
             </div>
         </div>
 
@@ -1561,7 +1573,7 @@
     <section class="about-section" id="about-section">
         <h3 class="black-ops about-title">About Me</h3>
         <h2 class="helvetica-rounded about-heading">Full-stack developer with hands-on experience in PHP, AngularJS, Laravel, and third-party API integrations.</h2>
-        <p class="about-description helvetica-rounded">Proven ability to build scalable web applications and integrate with major platforms such as Facebook, Instagram, TikTok, Snapchat, and WhatsApp. Known for delivering high-quality backend systems, real-time dashboards, and intuitive user experiences. Skilled in both freelance and product-based environments.</p>
+        <p class="about-description helvetica-rounded">Proven ability to build scalable software solutions and integrate with major platforms such as Facebook, Instagram, TikTok, Snapchat, and WhatsApp. Known for delivering high-quality backend systems, real-time dashboards, and intuitive user experiences. Skilled in both freelance and product-based environments.</p>
         
         <div class="stats">
             <div class="stat-item">
@@ -1569,7 +1581,7 @@
                 <p class="helvetica-rounded">Years of Experience</p>
             </div>
             <div class="stat-item">
-                <h4 class="helvetica-rounded">100+</h4>
+                <h4 class="helvetica-rounded">50+</h4>
                 <p class="helvetica-rounded">Projects Completed</p>
             </div>
             <div class="stat-item">
@@ -1577,7 +1589,7 @@
                 <p class="helvetica-rounded">Happy Clints</p>
             </div>
             <div class="stat-item">
-                <h4 class="helvetica-rounded">27+</h4>
+                <h4 class="helvetica-rounded">7+</h4>
                 <p class="helvetica-rounded">Partnership</p>
             </div>
         </div>
@@ -1594,7 +1606,7 @@
         <div class="tech-grid">
             <div class="tech-item">
                 <div class="tech-icon">
-                    <img src="https://www.figma.com/api/mcp/asset/3cf18bee-48c6-4aad-a189-80326f0a32a0" alt="PHP">
+                    <img src="assets/php-icon.png" alt="PHP">
                 </div>
                 <h3 class="black-ops">Php</h3>
                 <p class="helvetica-rounded">A versatile server-side scripting language for creating dynamic and efficient backend systems</p>
@@ -1602,7 +1614,7 @@
             
             <div class="tech-item">
                 <div class="tech-icon">
-                    <img src="https://www.figma.com/api/mcp/asset/34d37436-a7ad-48e1-b8ae-f23e15a09f48" alt="Laravel">
+                    <img src="assets/laravel-icon.png" alt="Laravel">
                 </div>
                 <h3 class="black-ops">Laravel</h3>
                 <p class="helvetica-rounded">A robust PHP framework I use to build secure, scalable, and maintainable web applications</p>
@@ -1610,15 +1622,15 @@
             
             <div class="tech-item">
                 <div class="tech-icon">
-                    <img src="https://www.figma.com/api/mcp/asset/87b4f7bf-3af0-4010-b4bc-5fcd011fefe2" alt="Flutter">
+                    <img src="assets/flutter-icon.png" alt="Flutter">
                 </div>
                 <h3 class="black-ops">Flutter</h3>
-                <p class="helvetica-rounded">A cross-platform framework for building fast, visually rich mobile applications from a single codebase</p>
+                <p class="helvetica-rounded">A cross-platform framework for building fast, visually rich mobile applications from a single codebase (In Progress)</p>
             </div>
             
             <div class="tech-item">
                 <div class="tech-icon">
-                    <img src="https://www.figma.com/api/mcp/asset/d66b9481-3315-45bc-85fb-b8bf4049af15" alt="API Integration">
+                    <img src="assets/api-icon.png" alt="API Integration">
                 </div>
                 <h3 class="black-ops">Api Integration</h3>
                 <p class="helvetica-rounded">The process of connecting systems and services to enable seamless data exchange and functionality</p>
@@ -1634,23 +1646,35 @@
         </div>
         
         <div class="projects-grid">
-            <a href="https://flyerz.app" target="_blank" rel="noopener noreferrer" class="project-card">
+            <a href="https://flyerz.convertedin.com/download-link" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-info">
                     <h3 class="black-ops">Flyerz - APP</h3>
                     <p class="helvetica-rounded">Flyerz App is a marketing platform that helps businesses create, manage, and track social media ad campaigns with ease.</p>
                 </div>
                 <div class="project-image">
-                    <img src="https://www.figma.com/api/mcp/asset/39e6a219-26ad-40bc-b5f7-fdb0a1cb9f7b" alt="Flyerz App">
+                    <img src="assets/flyerz-app.png" alt="Flyerz App">
                 </div>
             </a>
             
-            <a href="https://convertedin.io" target="_blank" rel="noopener noreferrer" class="project-card">
+            <div class="project-card">
+                <div class="project-info">
+                    <h3 class="black-ops">CASA Certificate (Google Verification)</h3>
+                    <p class="helvetica-rounded">
+                        Complete CASA certificate from Google for restricted API scopes, using <a href="https://www.zaproxy.org/" target="_blank" rel="noopener noreferrer" class="inner-link">OWASP® Zed</a> and get certified from <a href="https://fluidattacks.com/" target="_blank" rel="noopener noreferrer" class="inner-link">Fluid Attacks</a>, submitted, approved and verified by Google.
+                    </p>
+                </div>
+                <div class="project-image">
+                    <img src="assets/casa-certificate.png" alt="CASA Certificate Status">
+                </div>
+            </div>
+            
+            <a href="https://converted.in" target="_blank" rel="noopener noreferrer" class="project-card">
                 <div class="project-info">
                     <h3 class="black-ops">Convertedin</h3>
                     <p class="helvetica-rounded">Convertedin is a marketing operating system for e-commerce, which utilizes data and shoppers' insights to create personalized multi-channel.</p>
                 </div>
                 <div class="project-image">
-                    <img src="https://www.figma.com/api/mcp/asset/8d7ad1ab-7c59-4c51-a86b-0c77e0a4c7bc" alt="Convertedin">
+                    <img src="assets/convertedin.png" alt="Convertedin">
                 </div>
             </a>
             
@@ -1660,17 +1684,7 @@
                     <p class="helvetica-rounded">Mitsike is a customer loyalty platform, featuring user accounts, a points system, and a scalable backend for rewards and engagement features.</p>
                 </div>
                 <div class="project-image">
-                    <img src="https://mitsike.com/assets/preview.png" alt="Mitsike Redemption">
-                </div>
-            </a>
-            
-            <a href="https://rady-partners.craftelligence.org" target="_blank" rel="noopener noreferrer" class="project-card">
-                <div class="project-info">
-                    <h3 class="black-ops">Rady & Partners</h3>
-                    <p class="helvetica-rounded">A sleek, interactive website showcasing brand identities, enabling customers to preview brands, contact via email, and book consultancy sessions.</p>
-                </div>
-                <div class="project-image">
-                    <img src="https://rady-partners.craftelligence.org/preview.png" alt="Rady & Partners">
+                    <img src="assets/mitsike.png" alt="Mitsike Redemption">
                 </div>
             </a>
         </div>
@@ -1691,7 +1705,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="https://www.figma.com/api/mcp/asset/e6a272d3-16d9-4218-a23f-216d3c4e264a" alt="Fawzi Sayed">
+                                <img src="assets/testimonial-fawzi.jpg" alt="Fawzi Sayed">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Fawzi Sayed</div>
@@ -1708,7 +1722,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="https://www.figma.com/api/mcp/asset/aae374ab-554a-4600-bd4f-caed0c81923c" alt="Omar Hamdi">
+                                <img src="assets/testimonial-omar.jpg" alt="Omar Hamdi">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Omar Hamdi</div>
@@ -1725,7 +1739,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="https://www.figma.com/api/mcp/asset/e4f5521f-7082-4ff5-bbef-ff796d041102" alt="Mostafa Zakria">
+                                <img src="assets/testimonial-mostafa.jpg" alt="Mostafa Zakria">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Mostafa Zakria</div>
@@ -1757,7 +1771,7 @@
                     <h3 class="black-ops">Who am I?</h3>
                     <div class="faq-icon">−</div>
                 </div>
-                <p class="faq-answer helvetica-rounded">Full-stack developer with hands-on experience in PHP, AngularJS, Laravel, and third-party API integrations.Proven ability to build scalable web applications and integrate with major platforms such as Facebook, Instagram, TikTok, Snapchat, and WhatsApp.</p>
+                <p class="faq-answer helvetica-rounded">Full-stack developer with hands-on experience in PHP, Laravel, Vue.js and third-party API integrations.Proven ability to build scalable web applications and integrate with major platforms such as Facebook, Instagram, TikTok, Snapchat, and WhatsApp.</p>
             </div>
             
             <div class="faq-item">
@@ -1765,7 +1779,7 @@
                     <h3 class="black-ops">What services do you offer?</h3>
                     <div class="faq-icon">+</div>
                 </div>
-                <p class="faq-answer helvetica-rounded">I offer full-stack development services including backend architecture, API integration, database design, and mobile app development.</p>
+                <p class="faq-answer helvetica-rounded">I offer full-stack development services including backend architecture, API integration, database design, and Consultation.</p>
             </div>
             
             <div class="faq-item">
@@ -1781,7 +1795,7 @@
                     <h3 class="black-ops">What previous experience do you have?</h3>
                     <div class="faq-icon">+</div>
                 </div>
-                <p class="faq-answer helvetica-rounded">I have over 5 years of experience working on 100+ projects, including e-commerce platforms, marketing systems, and social media integrations.</p>
+                <p class="faq-answer helvetica-rounded">I have over 5 years of experience working on 50+ projects, including e-commerce platforms, marketing systems, ERPs, CRM systems and social media integrations.</p>
             </div>
             
             <div class="faq-item">
@@ -1790,6 +1804,16 @@
                     <div class="faq-icon">+</div>
                 </div>
                 <p class="faq-answer helvetica-rounded">Scaling systems to handle millions of users while maintaining performance and integrating complex third-party APIs with limited documentation.</p>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3 class="black-ops">What about integration with third-party APIs?</h3>
+                    <div class="faq-icon">+</div>
+                </div>
+                <p class="faq-answer helvetica-rounded">
+                    Meta, Snapchat, Tiktok, FreshChat, ETA, Google Api, Google restricted APIs CASA with  and many more.
+                </p>
             </div>
         </div>
     </section>
@@ -1827,8 +1851,13 @@
         
         <div class="footer-content">
             <div class="footer-top">
-                <div class="footer-logo black-ops">MS-CODE.DEV</div>
-                
+                <div class="footer-cta">
+                    <p class="helvetica-rounded">Do you have a project, Contact me</p>
+                    <div class="email-input-wrapper">
+                        <input type="email" placeholder="youremail@example.com">
+                        <button class="email-submit-btn">→</button>
+                    </div>
+                </div>
                 <div class="footer-columns">
                     <div class="footer-column">
                         <h4 class="helvetica-rounded">Browse</h4>
@@ -1848,18 +1877,14 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="footer-logo black-ops">MS-CODE.DEV</div>
+
                 
-                <div class="footer-cta">
-                    <p class="helvetica-rounded">Do you have a project, Contact me</p>
-                    <div class="email-input-wrapper">
-                        <input type="email" placeholder="youremail@example.com">
-                        <button class="email-submit-btn">→</button>
-                    </div>
-                </div>
             </div>
             
             <div class="footer-bottom">
-                <p class="copyright helvetica-rounded">2025 Bowered by Bfiro</p>
+                <p class="copyright helvetica-rounded">2025 MS-CODE.DEV</p>
                 
                 <div class="social-links">
                     <div class="social-icon">
@@ -2000,7 +2025,7 @@
                         if (progress > 0.4) items[3].style.opacity = '1';
                     }
 
-                    // Projects Section Animation (5 variants)
+                    // Projects Section Animation (5 projects)
                     if (section.id === 'projects-section') {
                         const title = section.querySelector('.projects-title');
                         const subtitle = section.querySelector('.projects-subtitle');
@@ -2012,6 +2037,7 @@
                         if (progress > 0.4) cards[1].style.opacity = '1';
                         if (progress > 0.4) cards[2].style.opacity = '1';
                         if (progress > 0.4) cards[3].style.opacity = '1';
+                        if (progress > 0.4) cards[4].style.opacity = '1';
                     }
 
                     // Testimonials Section Animation (6 variants)
@@ -2047,8 +2073,8 @@
                         const cta = section.querySelector('.footer-cta');
 
                         if (progress > 0.2) logo.style.opacity = '1';
-                        if (progress > 0.4) columns.style.opacity = '1';
-                        if (progress > 0.6) cta.style.opacity = '1';
+                        if (progress > 0.2) columns.style.opacity = '1';
+                        if (progress > 0.2) cta.style.opacity = '1';
                     }
                 }
             });
@@ -2152,6 +2178,21 @@
             } else {
                 alert('Please enter a valid email address.');
             }
+        });
+
+        // Handle project card clicks (for cards with data-href)
+        document.querySelectorAll('.project-card[data-href]').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Don't navigate if clicking on an inner link
+                if (e.target.tagName === 'A' || e.target.closest('.inner-link')) {
+                    return;
+                }
+                
+                const url = this.getAttribute('data-href');
+                if (url) {
+                    window.open(url, '_blank', 'noopener,noreferrer');
+                }
+            });
         });
     </script>
 </body>

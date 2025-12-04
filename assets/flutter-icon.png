@@ -1,0 +1,17 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="flutter-svgrepo-com 1">
+<g id="Group">
+<path id="Vector" d="M19.4356 40.1824L26.1926 46.9921L44.7833 28.2562H31.2657L19.4356 40.1824Z" fill="var(--fill-0, white)"/>
+<path id="Vector_2" d="M31.2657 7.81519H44.7833L16.0559 36.7757L9.29419 29.9636L31.2657 7.81519Z" fill="var(--fill-0, white)"/>
+</g>
+<path id="Vector_3" d="M26.1926 46.9921L31.2657 52.1003H44.7833L32.9532 40.1824L26.1926 46.9921Z" fill="var(--fill-0, #ADADAD)"/>
+<path id="Vector_4" d="M36.2192 43.4953L32.9532 40.1824L26.1926 46.9921L36.2192 43.4953Z" fill="url(#paint0_linear_0_19)"/>
+<path id="Vector_5" d="M19.4355 40.18L26.1961 33.3621L32.9578 40.1765L26.1961 46.9921L19.4355 40.18Z" fill="var(--fill-0, #EEEEEE)"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_19" x1="26.1797" y1="46.9921" x2="34.6172" y2="41.9531" gradientUnits="userSpaceOnUse">
+<stop stop-opacity="0.4"/>
+<stop offset="1" stop-color="#124793" stop-opacity="0"/>
+</linearGradient>
+</defs>
+</svg>
