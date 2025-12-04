@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /send-email.php
+
+# Sitemap location
+Sitemap: https://ms-code.dev/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1
+

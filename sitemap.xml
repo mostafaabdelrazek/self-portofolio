@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Homepage -->
+    <url>
+        <loc>https://ms-code.dev/</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://ms-code.dev/assets/hero-image.png</image:loc>
+            <image:title>Mostafa Yasser - Full Stack Developer</image:title>
+        </image:image>
+    </url>
+    
+    <!-- About Section -->
+    <url>
+        <loc>https://ms-code.dev/#about-section</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Technologies Section -->
+    <url>
+        <loc>https://ms-code.dev/#tech-section</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Projects Section -->
+    <url>
+        <loc>https://ms-code.dev/#projects-section</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Testimonials Section -->
+    <url>
+        <loc>https://ms-code.dev/#testimonial-section</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- FAQ Section -->
+    <url>
+        <loc>https://ms-code.dev/#faq-section</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+</urlset>
+

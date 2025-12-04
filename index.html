@@ -3,10 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MS-CODE.DEV - Mostafa Yasser Portfolio</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Mostafa Yasser - Full Stack Developer | PHP, Laravel, Flutter | MS-CODE.DEV</title>
+    <meta name="title" content="Mostafa Yasser - Full Stack Developer | PHP, Laravel, Flutter | MS-CODE.DEV">
+    <meta name="description" content="Full-stack developer with 5+ years of experience in PHP, Laravel, Vue.js, and Flutter. Expert in building scalable web applications and API integrations with Facebook, Instagram, TikTok, Snapchat, and WhatsApp.">
+    <meta name="keywords" content="Mostafa Yasser, Full Stack Developer, PHP Developer, Laravel Expert, Flutter Developer, API Integration, Web Development, Mobile Development, Facebook API, Instagram API, TikTok API, Snapchat API, WhatsApp API, CRM Development, ERP Systems, E-commerce Development">
+    <meta name="author" content="Mostafa Yasser">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ms-code.dev/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="alternate icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ms-code.dev/">
+    <meta property="og:title" content="Mostafa Yasser - Full Stack Developer | MS-CODE.DEV">
+    <meta property="og:description" content="Full-stack developer with 5+ years of experience in PHP, Laravel, Vue.js, and Flutter. Expert in building scalable web applications and API integrations.">
+    <meta property="og:image" content="https://ms-code.dev/assets/hero-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="MS-CODE.DEV">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ms-code.dev/">
+    <meta name="twitter:title" content="Mostafa Yasser - Full Stack Developer | MS-CODE.DEV">
+    <meta name="twitter:description" content="Full-stack developer with 5+ years of experience in PHP, Laravel, Vue.js, and Flutter. Expert in building scalable web applications and API integrations.">
+    <meta name="twitter:image" content="https://ms-code.dev/assets/hero-image.png">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mostafa Yasser",
+      "url": "https://ms-code.dev",
+      "image": "https://ms-code.dev/assets/hero-image.png",
+      "jobTitle": "Full Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "MS-CODE.DEV"
+      },
+      "description": "Full-stack developer with hands-on experience in PHP, Laravel, Vue.js, and third-party API integrations.",
+      "email": "info@ms-code.dev",
+      "knowsAbout": ["PHP", "Laravel", "Vue.js", "Flutter", "API Integration", "Web Development", "Mobile Development"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Software Engineering"
+      },
+      "sameAs": [
+        "https://ms-code.dev"
+      ]
+    }
+    </script>
+    
+    <!-- Preconnect to improve performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+    
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <style>
         /* CSS Reset */
         * {
@@ -1125,6 +1191,11 @@
             transform: scale(1.05);
         }
 
+        .email-submit-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 24px;
@@ -2227,23 +2298,23 @@
         let currentSlide = 0;
         const testimonialSlider = document.getElementById('testimonials-slider');
         const testimonialCards = document.querySelectorAll('.testimonial-card');
-        const prevBtn = document.getElementById('prev-testimonial');
-        const nextBtn = document.getElementById('next-testimonial');
+        // const prevBtn = document.getElementById('prev-testimonial');
+        // const nextBtn = document.getElementById('next-testimonial');
 
         function updateSlider() {
             const cardWidth = testimonialCards[0].offsetWidth + 20;
             testimonialSlider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
         }
 
-        prevBtn.addEventListener('click', () => {
-            currentSlide = Math.max(0, currentSlide - 1);
-            updateSlider();
-        });
+        // prevBtn.addEventListener('click', () => {
+        //     currentSlide = Math.max(0, currentSlide - 1);
+        //     updateSlider();
+        // });
 
-        nextBtn.addEventListener('click', () => {
-            currentSlide = Math.min(testimonialCards.length - 1, currentSlide + 1);
-            updateSlider();
-        });
+        // nextBtn.addEventListener('click', () => {
+        //     currentSlide = Math.min(testimonialCards.length - 1, currentSlide + 1);
+        //     updateSlider();
+        // });
 
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -2257,16 +2328,51 @@
         });
 
         // Email form
-        document.querySelector('.email-submit-btn').addEventListener('click', (e) => {
+        document.querySelector('.email-submit-btn').addEventListener('click', async (e) => {
             e.preventDefault();
             const emailInput = document.querySelector('.email-input-wrapper input');
-            const email = emailInput.value;
+            const submitBtn = document.querySelector('.email-submit-btn');
+            const email = emailInput.value.trim();
             
-            if (email && email.includes('@')) {
-                alert('Thank you for your interest! We will contact you soon.');
-                emailInput.value = '';
-            } else {
+            // Basic validation
+            if (!email || !email.includes('@')) {
                 alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.6';
+            submitBtn.textContent = '...';
+            
+            try {
+                const response = await fetch('send-email.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        message: 'New contact request from portfolio website'
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.status === 'success') {
+                    alert('✅ ' + result.message);
+                    emailInput.value = '';
+                } else {
+                    alert('❌ ' + result.message);
+                }
+            } catch (error) {
+                alert('❌ An error occurred. Please try again or contact me directly at info@ms-code.dev');
+                console.error('Error:', error);
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.textContent = '→';
             }
         });
 
