@@ -507,7 +507,8 @@
             text-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
             white-space: nowrap;
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, left;
+            will-change: transform;
+            transform: translateZ(0); /* Force GPU acceleration */
         }
 
         .hero-text-mostafa {
@@ -529,13 +530,16 @@
             width: 1062px;
             height: 979px;
             transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: transform, top;
+            will-change: transform;
+            transform: translateZ(0); /* Force GPU acceleration */
         }
 
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            loading: eager;
+            decoding: sync;
         }
 
         .hero-intro {
@@ -548,8 +552,8 @@
             padding: 20px;
             border-radius: 10px;
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0); /* Force GPU acceleration */
         }
 
         .hero-intro h2 {
@@ -568,8 +572,8 @@
             left: 240px;
             bottom: 68px;
             opacity: 0;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            will-change: opacity;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0); /* Force GPU acceleration */
         }
 
         .hero-role {
@@ -842,6 +846,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            loading: lazy;
+            decoding: async;
         }
 
         /* Testimonials Section */
@@ -930,6 +936,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            loading: lazy;
+            decoding: async;
         }
 
         .author-name {
@@ -1268,6 +1276,28 @@
 
         .animate-out {
             opacity: 0 !important;
+        }
+
+        /* Optimize animations for mobile performance */
+        @media (max-width: 768px) {
+            /* Reduce will-change usage on mobile */
+            .hero-text-large,
+            .hero-image {
+                will-change: auto;
+            }
+            
+            /* Optimize transitions for mobile */
+            * {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            /* Reduce animation complexity on mobile */
+            .project-card,
+            .testimonial-card,
+            .faq-item {
+                transform: translateZ(0);
+            }
         }
 
         /* Responsive Design */
@@ -1849,7 +1879,7 @@
                     <p class="helvetica-rounded">Flyerz App is a marketing platform that helps businesses create, manage, and track social media ad campaigns with ease.</p>
                 </div>
                 <div class="project-image">
-                    <img src="assets/flyerz-app.png" alt="Flyerz App">
+                    <img src="assets/flyerz-app.png" alt="Flyerz App" loading="lazy" decoding="async">
                 </div>
             </a>
             
@@ -1859,7 +1889,7 @@
                     <p class="helvetica-rounded">Convertedin is a marketing operating system for e-commerce, which utilizes data and shoppers' insights to create personalized multi-channel.</p>
                 </div>
                 <div class="project-image">
-                    <img src="assets/convertedin.png" alt="Convertedin">
+                    <img src="assets/convertedin.png" alt="Convertedin" loading="lazy" decoding="async">
                 </div>
             </a>
             
@@ -1869,7 +1899,7 @@
                     <p class="helvetica-rounded">Mitsike is a customer loyalty platform, featuring user accounts, a points system, and a scalable backend for rewards and engagement features.</p>
                 </div>
                 <div class="project-image">
-                    <img src="assets/mitsike.png" alt="Mitsike Redemption">
+                    <img src="assets/mitsike.png" alt="Mitsike Redemption" loading="lazy" decoding="async">
                 </div>
             </a>
             <div class="project-card">
@@ -1880,7 +1910,7 @@
                     </p>
                 </div>
                 <div class="project-image">
-                    <img src="assets/casa-certificate.png" alt="CASA Certificate Status">
+                    <img src="assets/casa-certificate.png" alt="CASA Certificate Status" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
@@ -1901,7 +1931,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="assets/testimonial-fawzi.jpg" alt="Fawzi Sayed">
+                                <img src="assets/testimonial-fawzi.jpg" alt="Fawzi Sayed" loading="lazy" decoding="async">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Fawzi Sayed</div>
@@ -1918,7 +1948,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="assets/testimonial-omar.jpg" alt="Omar Hamdi">
+                                <img src="assets/testimonial-omar.jpg" alt="Omar Hamdi" loading="lazy" decoding="async">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Omar Hamdi</div>
@@ -1935,7 +1965,7 @@
                     <div class="testimonial-author">
                         <div class="author-info">
                             <div class="author-avatar">
-                                <img src="assets/testimonial-mostafa.jpg" alt="Mostafa Zakria">
+                                <img src="assets/testimonial-mostafa.jpg" alt="Mostafa Zakria" loading="lazy" decoding="async">
                             </div>
                             <div>
                                 <div class="author-name black-ops">Mostafa Zakria</div>
@@ -2171,21 +2201,35 @@
         // Floating Email Icon - Show on scroll
         const floatingEmail = document.getElementById('floating-email');
         
+        // Use passive listener for better scroll performance
+        let scrollTimeout;
         window.addEventListener('scroll', () => {
-            const scrollPosition = window.scrollY;
-            
-            // Show floating email after scrolling 400px
-            if (scrollPosition > 400) {
-                floatingEmail.classList.add('visible');
-            } else {
-                floatingEmail.classList.remove('visible');
+            // Throttle scroll events for better performance
+            if (scrollTimeout) {
+                return;
             }
-        });
+            
+            scrollTimeout = requestAnimationFrame(() => {
+                const scrollPosition = window.scrollY;
+                
+                // Show floating email after scrolling 400px
+                if (scrollPosition > 400) {
+                    floatingEmail.classList.add('visible');
+                } else {
+                    floatingEmail.classList.remove('visible');
+                }
+                
+                scrollTimeout = null;
+            });
+        }, { passive: true });
 
-        // Section Scroll Animations
+        // Track animated elements to prevent re-animation
+        const animatedElements = new Set();
+
+        // Optimized Section Scroll Animations for mobile performance
         const observerOptions = {
-            threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8],
-            rootMargin: '0px'
+            threshold: [0.1, 0.3, 0.5], // Reduced from 8 to 3 thresholds for better performance
+            rootMargin: '50px' // Start animation slightly before element enters viewport
         };
 
         const sectionObserver = new IntersectionObserver((entries) => {
@@ -2194,88 +2238,167 @@
                     const section = entry.target;
                     const progress = entry.intersectionRatio;
 
-                    // About Section Animation (7 variants)
-                    if (section.id === 'about-section') {
-                        const title = section.querySelector('.about-title');
-                        const heading = section.querySelector('.about-heading');
-                        const description = section.querySelector('.about-description');
-                        const stats = section.querySelectorAll('.stat-item');
+                    // Use requestAnimationFrame for smoother animations
+                    requestAnimationFrame(() => {
+                        // About Section Animation
+                        if (section.id === 'about-section') {
+                            const title = section.querySelector('.about-title');
+                            const heading = section.querySelector('.about-heading');
+                            const description = section.querySelector('.about-description');
+                            const stats = section.querySelectorAll('.stat-item');
 
-                        if (progress > 0.1) title.style.opacity = '1';
-                        if (progress > 0.2) heading.style.opacity = '1';
-                        if (progress > 0.3) description.style.opacity = '1';
-                        if (progress > 0.4) stats[0].style.opacity = '1';
-                        if (progress > 0.5) stats[1].style.opacity = '1';
-                        if (progress > 0.6) stats[2].style.opacity = '1';
-                        if (progress > 0.7) stats[3].style.opacity = '1';
-                    }
+                            if (progress > 0.1 && !animatedElements.has('about-title')) {
+                                title.style.opacity = '1';
+                                animatedElements.add('about-title');
+                            }
+                            if (progress > 0.2 && !animatedElements.has('about-heading')) {
+                                heading.style.opacity = '1';
+                                animatedElements.add('about-heading');
+                            }
+                            if (progress > 0.3 && !animatedElements.has('about-description')) {
+                                description.style.opacity = '1';
+                                animatedElements.add('about-description');
+                            }
+                            if (progress > 0.4 && stats[0] && !animatedElements.has('about-stat-0')) {
+                                stats[0].style.opacity = '1';
+                                animatedElements.add('about-stat-0');
+                            }
+                            if (progress > 0.5 && stats[1] && !animatedElements.has('about-stat-1')) {
+                                stats[1].style.opacity = '1';
+                                animatedElements.add('about-stat-1');
+                            }
+                            if (progress > 0.6 && stats[2] && !animatedElements.has('about-stat-2')) {
+                                stats[2].style.opacity = '1';
+                                animatedElements.add('about-stat-2');
+                            }
+                            if (progress > 0.7 && stats[3] && !animatedElements.has('about-stat-3')) {
+                                stats[3].style.opacity = '1';
+                                animatedElements.add('about-stat-3');
+                            }
+                        }
 
-                    // Technologies Section Animation (6 variants)
-                    if (section.id === 'tech-section') {
-                        const heading = section.querySelector('.tech-heading');
-                        const description = section.querySelector('.tech-description');
-                        const button = section.querySelector('.contact-btn');
-                        const items = section.querySelectorAll('.tech-item');
+                        // Technologies Section Animation
+                        if (section.id === 'tech-section') {
+                            const heading = section.querySelector('.tech-heading');
+                            const description = section.querySelector('.tech-description');
+                            const button = section.querySelector('.contact-btn');
+                            const items = section.querySelectorAll('.tech-item');
 
-                        if (progress > 0.1) heading.style.opacity = '1';
-                        if (progress > 0.2) description.style.opacity = '1';
-                        if (progress > 0.3) button.style.opacity = '1';
-                        if (progress > 0.4) items[0].style.opacity = '1';
-                        if (progress > 0.4) items[1].style.opacity = '1';
-                        if (progress > 0.4) items[2].style.opacity = '1';
-                        if (progress > 0.4) items[3].style.opacity = '1';
-                    }
+                            if (progress > 0.1 && !animatedElements.has('tech-heading')) {
+                                heading.style.opacity = '1';
+                                animatedElements.add('tech-heading');
+                            }
+                            if (progress > 0.2 && !animatedElements.has('tech-description')) {
+                                description.style.opacity = '1';
+                                animatedElements.add('tech-description');
+                            }
+                            if (progress > 0.3 && !animatedElements.has('tech-button')) {
+                                button.style.opacity = '1';
+                                animatedElements.add('tech-button');
+                            }
+                            if (progress > 0.4) {
+                                items.forEach((item, index) => {
+                                    const key = `tech-item-${index}`;
+                                    if (!animatedElements.has(key)) {
+                                        item.style.opacity = '1';
+                                        animatedElements.add(key);
+                                    }
+                                });
+                            }
+                        }
 
-                    // Projects Section Animation (5 projects)
-                    if (section.id === 'projects-section') {
-                        const title = section.querySelector('.projects-title');
-                        const subtitle = section.querySelector('.projects-subtitle');
-                        const cards = section.querySelectorAll('.project-card');
+                        // Projects Section Animation
+                        if (section.id === 'projects-section') {
+                            const title = section.querySelector('.projects-title');
+                            const subtitle = section.querySelector('.projects-subtitle');
+                            const cards = section.querySelectorAll('.project-card');
 
-                        if (progress > 0.1) title.style.opacity = '1';
-                        if (progress > 0.2) subtitle.style.opacity = '1';
-                        if (progress > 0.3) cards[0].style.opacity = '1';
-                        if (progress > 0.3) cards[1].style.opacity = '1';
-                        if (progress > 0.3) cards[2].style.opacity = '1';
-                        if (progress > 0.3) cards[3].style.opacity = '1';
-                    }
+                            if (progress > 0.1 && !animatedElements.has('projects-title')) {
+                                title.style.opacity = '1';
+                                animatedElements.add('projects-title');
+                            }
+                            if (progress > 0.2 && !animatedElements.has('projects-subtitle')) {
+                                subtitle.style.opacity = '1';
+                                animatedElements.add('projects-subtitle');
+                            }
+                            if (progress > 0.3) {
+                                cards.forEach((card, index) => {
+                                    const key = `project-card-${index}`;
+                                    if (!animatedElements.has(key)) {
+                                        card.style.opacity = '1';
+                                        animatedElements.add(key);
+                                    }
+                                });
+                            }
+                        }
 
-                    // Testimonials Section Animation (6 variants)
-                    if (section.id === 'testimonial-section') {
-                        const header = section.querySelector('.testimonial-header');
-                        const cards = section.querySelectorAll('.testimonial-card');
-                        const nav = section.querySelector('.testimonial-nav');
+                        // Testimonials Section Animation
+                        if (section.id === 'testimonial-section') {
+                            const header = section.querySelector('.testimonial-header');
+                            const cards = section.querySelectorAll('.testimonial-card');
+                            const nav = section.querySelector('.testimonial-nav');
 
-                        if (progress > 0.1) header.style.opacity = '1';
-                        if (progress > 0.3) cards[0].style.opacity = '1';
-                        if (progress > 0.5) cards[1].style.opacity = '1';
-                        if (progress > 0.7) cards[2].style.opacity = '1';
-                        if (progress > 0.8) nav.style.opacity = '1';
-                    }
+                            if (progress > 0.1 && !animatedElements.has('testimonial-header')) {
+                                header.style.opacity = '1';
+                                animatedElements.add('testimonial-header');
+                            }
+                            if (progress > 0.3) {
+                                cards.forEach((card, index) => {
+                                    const key = `testimonial-card-${index}`;
+                                    if (!animatedElements.has(key)) {
+                                        card.style.opacity = '1';
+                                        animatedElements.add(key);
+                                    }
+                                });
+                            }
+                            if (progress > 0.8 && nav && !animatedElements.has('testimonial-nav')) {
+                                nav.style.opacity = '1';
+                                animatedElements.add('testimonial-nav');
+                            }
+                        }
 
-                    // FAQ Section Animation (7 variants)
-                    if (section.id === 'faq-section') {
-                        const intro = section.querySelector('.faq-intro');
-                        const items = section.querySelectorAll('.faq-item');
+                        // FAQ Section Animation
+                        if (section.id === 'faq-section') {
+                            const intro = section.querySelector('.faq-intro');
+                            const items = section.querySelectorAll('.faq-item');
 
-                        if (progress > 0.1) intro.style.opacity = '1';
-                        if (progress > 0.2) items[0].style.opacity = '1';
-                        if (progress > 0.3) items[1].style.opacity = '1';
-                        if (progress > 0.3) items[2].style.opacity = '1';
-                        if (progress > 0.3) items[3].style.opacity = '1';
-                        if (progress > 0.3) items[4].style.opacity = '1';
-                    }
+                            if (progress > 0.1 && !animatedElements.has('faq-intro')) {
+                                intro.style.opacity = '1';
+                                animatedElements.add('faq-intro');
+                            }
+                            if (progress > 0.2) {
+                                items.forEach((item, index) => {
+                                    const key = `faq-item-${index}`;
+                                    if (!animatedElements.has(key)) {
+                                        item.style.opacity = '1';
+                                        animatedElements.add(key);
+                                    }
+                                });
+                            }
+                        }
 
-                    // Footer Animation (2 variants)
-                    if (section.id === 'footer') {
-                        const logo = section.querySelector('.footer-logo');
-                        const columns = section.querySelector('.footer-columns');
-                        const cta = section.querySelector('.footer-cta');
+                        // Footer Animation
+                        if (section.id === 'footer') {
+                            const logo = section.querySelector('.footer-logo');
+                            const columns = section.querySelector('.footer-columns');
+                            const cta = section.querySelector('.footer-cta');
 
-                        if (progress > 0.2) logo.style.opacity = '1';
-                        if (progress > 0.2) columns.style.opacity = '1';
-                        if (progress > 0.2) cta.style.opacity = '1';
-                    }
+                            if (progress > 0.2) {
+                                if (logo && !animatedElements.has('footer-logo')) {
+                                    logo.style.opacity = '1';
+                                    animatedElements.add('footer-logo');
+                                }
+                                if (columns && !animatedElements.has('footer-columns')) {
+                                    columns.style.opacity = '1';
+                                    animatedElements.add('footer-columns');
+                                }
+                                if (cta && !animatedElements.has('footer-cta')) {
+                                    cta.style.opacity = '1';
+                                    animatedElements.add('footer-cta');
+                                }
+                            }
+                        }
+                    });
                 }
             });
         }, observerOptions);
