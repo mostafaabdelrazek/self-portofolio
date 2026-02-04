@@ -16,6 +16,7 @@ if (!isset($data['email']) || empty($data['email'])) {
 // Sanitize
 $email = filter_var($data['email'], FILTER_SANITIZE_EMAIL);
 $message = isset($data['message']) ? htmlspecialchars($data['message']) : '';
+$subjectOverride = isset($data['subject']) ? htmlspecialchars($data['subject']) : null;
 
 // Validate email format
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -27,7 +28,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 // Email setup
 // You can add multiple emails separated by commas
 $to = 'info@ms-code.dev, mostafaabdelrazek771@gmail.com, abdelrazekmostafa771@gmail.com';
-$subject = 'New Contact Request from Portfolio Website';
+$subject = $subjectOverride ?: 'New Contact Request from Portfolio Website';
 
 $body = <<<EOD
 📩 New Contact Request
