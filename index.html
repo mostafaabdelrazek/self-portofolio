@@ -1752,7 +1752,7 @@
     <nav id="main-nav">
         <div class="logo black-ops">MS-CODE.DEV</div>
         <div class="nav-right">
-            <a href="assets/Mostafa-Abdelrazek-Resume.pdf" target="_blank" download="Mostafa_Abdelrazek_Resume.pdf" class="download-cv-btn helvetica-rounded" title="Download My CV">
+            <a href="resume/Mostafa-Abdelrazek-Resume.pdf" target="_blank" download="Mostafa_Abdelrazek_Resume.pdf" class="download-cv-btn helvetica-rounded" title="Download My CV">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -2270,27 +2270,27 @@
                                 title.style.opacity = '1';
                                 animatedElements.add('about-title');
                             }
-                            if (progress > 0.15 && !animatedElements.has('about-heading')) {
+                            if (progress > 0.1 && !animatedElements.has('about-heading')) {
                                 heading.style.opacity = '1';
                                 animatedElements.add('about-heading');
                             }
-                            if (progress > 0.2 && !animatedElements.has('about-description')) {
+                            if (progress > 0.15 && !animatedElements.has('about-description')) {
                                 description.style.opacity = '1';
                                 animatedElements.add('about-description');
                             }
-                            if (progress > 0.25 && stats[0] && !animatedElements.has('about-stat-0')) {
+                            if (progress > 0.2 && stats[0] && !animatedElements.has('about-stat-0')) {
                                 stats[0].style.opacity = '1';
                                 animatedElements.add('about-stat-0');
                             }
-                            if (progress > 0.3 && stats[1] && !animatedElements.has('about-stat-1')) {
+                            if (progress > 0.25 && stats[1] && !animatedElements.has('about-stat-1')) {
                                 stats[1].style.opacity = '1';
                                 animatedElements.add('about-stat-1');
                             }
-                            if (progress > 0.35 && stats[2] && !animatedElements.has('about-stat-2')) {
+                            if (progress > 0.3 && stats[2] && !animatedElements.has('about-stat-2')) {
                                 stats[2].style.opacity = '1';
                                 animatedElements.add('about-stat-2');
                             }
-                            if (progress > 0.4 && stats[3] && !animatedElements.has('about-stat-3')) {
+                            if (progress > 0.35 && stats[3] && !animatedElements.has('about-stat-3')) {
                                 stats[3].style.opacity = '1';
                                 animatedElements.add('about-stat-3');
                             }
@@ -2307,15 +2307,15 @@
                                 heading.style.opacity = '1';
                                 animatedElements.add('tech-heading');
                             }
-                            if (progress > 0.2 && !animatedElements.has('tech-description')) {
+                            if (progress > 0.15 && !animatedElements.has('tech-description')) {
                                 description.style.opacity = '1';
                                 animatedElements.add('tech-description');
                             }
-                            if (progress > 0.3 && !animatedElements.has('tech-button')) {
+                            if (progress > 0.2 && !animatedElements.has('tech-button')) {
                                 button.style.opacity = '1';
                                 animatedElements.add('tech-button');
                             }
-                            if (progress > 0.4) {
+                            if (progress > 0.25) {
                                 items.forEach((item, index) => {
                                     const key = `tech-item-${index}`;
                                     if (!animatedElements.has(key)) {
